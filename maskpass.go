@@ -1,4 +1,6 @@
-//
+// Package maskpass masks the password of an URL, so something like
+// https://user:password@host:port/ would end up like
+// https://user:xxxxxx@host:port/.
 package maskpass
 
 import (
