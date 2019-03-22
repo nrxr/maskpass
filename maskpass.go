@@ -1,6 +1,13 @@
 // Package maskpass masks the password of an URL, so something like
 // https://user:password@host:port/ would end up like
 // https://user:xxxxxx@host:port/.
+//
+// Usage
+//
+// The easiest way to use maskpass is with the method StringNE.
+//
+//  uri := url.Parse("whatever")
+//  masked := maskpass.String(uri.String())
 package maskpass
 
 import (
@@ -21,9 +28,9 @@ func Mask(uri string) (*url.URL, error) {
 	return msk, nil
 }
 
-// String returns the url.URL.String() value and an error if something went
-// wrong calling Mask.
-func String(uri string) (string, error) {
+// StringError returns the url.URL.String() value and an error if something
+// went wrong calling Mask.
+func StringError(uri string) (string, error) {
 	msk, err := Mask(uri)
 	if err != nil {
 		return "", err
@@ -31,9 +38,9 @@ func String(uri string) (string, error) {
 	return msk.String(), nil
 }
 
-// StringNE returns a masked url.URL.String() without error handling. It's a
+// String returns a masked url.URL.String() without error handling. It's a
 // wrapper of String().
-func StringNE(uri string) string {
-	msk, _ := String(uri)
+func String(uri string) string {
+	msk, _ := StringError(uri)
 	return msk
 }

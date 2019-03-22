@@ -39,9 +39,9 @@ var dataString = []struct {
 	},
 }
 
-func TestString(t *testing.T) {
+func TestStringError(t *testing.T) {
 	for _, d := range dataString {
-		msk, err := String(d.uri)
+		msk, err := StringError(d.uri)
 		if err != nil {
 			t.Errorf(`String("%s") returned an error: %v`, d.uri, err)
 		}
@@ -52,9 +52,9 @@ func TestString(t *testing.T) {
 	}
 }
 
-func TestStringNE(t *testing.T) {
+func TestString(t *testing.T) {
 	for _, d := range dataString {
-		msk := StringNE(d.uri)
+		msk := String(d.uri)
 		if msk != d.exp {
 			t.Errorf(`String("%s") returned wrong result. Got %s and expected %s`, d.uri, msk, d.exp)
 		}
