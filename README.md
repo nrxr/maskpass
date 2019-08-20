@@ -1,5 +1,8 @@
 # maskpass
 
+`maskpass` will mask a given string with `xxxxxx`, this is specially useful to
+hide passwords on logs.
+
 Simple usage:
 
     package main
@@ -16,3 +19,7 @@ Simple usage:
     }
 
 Full docs on https://godoc.org/github.com/nrxr/maskpass
+
+## License
+
+ⓒ 2019, nrxr `<nrxr@disroot.org>`. Released under the MIT license terms.
