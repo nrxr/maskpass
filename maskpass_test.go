@@ -37,6 +37,10 @@ var dataString = []struct {
 		uri: "mysql://user:password@host.tld/database",
 		exp: "mysql://user:xxxxxx@host.tld/database",
 	},
+	{ // if there's no password then it should not mask anything
+		uri: "mysql://user@host.tld/database",
+		exp: "mysql://user@host.tld/database",
+	},
 }
 
 func TestStringError(t *testing.T) {
