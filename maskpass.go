@@ -2,9 +2,9 @@
 // https://user:password@host:port/ would end up like
 // https://user:xxxxxx@host:port/.
 //
-// Usage
+// Usage:
 //
-// The easiest way to use maskpass is with the method StringNE.
+// The easiest way to use maskpass is with the method String.
 //
 //  uri := url.Parse("whatever")
 //  masked := maskpass.String(uri.String())
@@ -24,7 +24,9 @@ func Mask(uri string) (*url.URL, error) {
 		return nil, err
 	}
 
-	msk.User = url.UserPassword(msk.User.Username(), MASK)
+	if _, has := msk.User.Password(); has {
+		msk.User = url.UserPassword(msk.User.Username(), MASK)
+	}
 	return msk, nil
 }
 
