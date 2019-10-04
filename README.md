@@ -1,7 +1,13 @@
 # maskpass
 
-`maskpass` will mask a given string with `xxxxxx`, this is specially useful to
-hide passwords on logs.
+This package masks passwords from URL strings making them log-friendly.
+
+Even if you're using `url.URL` structures instead of plain strings, this is very
+useful, you just need to pass the `url.URL.String()` value and `maskpass` will
+take care of it.
+
+It will only mask the URL if there's a password in the URL, otherwise it will
+just output the same thing `url.URL.String()` would.
 
 Simple usage:
 
