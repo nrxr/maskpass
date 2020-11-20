@@ -1,5 +1,11 @@
 # maskpass
 
+**DEPRECATED**: Please, use `net/url`'s `URL.Redacted` instead.
+
+https://pkg.go.dev/net/url#URL.Redacted
+
+---
+
 This package masks passwords from URL strings making them log-friendly.
 
 Even if you're using `url.URL` structures instead of plain strings, this is very
